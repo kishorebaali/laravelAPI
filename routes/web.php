@@ -53,3 +53,7 @@ Route::put('/userupdate',  [UserController::class, 'userupdate'])->name('userupd
 Route::post('/userlogin',  [UserLogin::class, 'authenticate']);
 Route::get('/login',  [UserLogin::class, 'userlogin']);
 Route::get('/dashboard',  [UserLogin::class, 'dashboard']);
+Route::get('/logout', function () {
+    session()->flush();
+    return redirect('/login');
+});

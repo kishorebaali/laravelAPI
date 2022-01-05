@@ -23,7 +23,8 @@ class UserLogin extends Controller
         if ($data == null) {
             return 'invalid';
         } else {
-            return 'success';
+            session(["user" => $data]);
+            return redirect('dashboard');
         }
     }
     public function dashboard()
